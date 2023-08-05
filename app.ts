@@ -64,8 +64,8 @@ app.use(async (req, res, next)=>{
 authRoutes(app)
 booksRoutes(app)
 
-app.listen(3000, async () => {
-    console.log("server running")
+app.listen(process.env.PORT || 3000, async () => {
+    console.log("server running on port " + process.env.PORT || 3000)
     await psql.sync()
     await mongo()
     console.log("database running")
